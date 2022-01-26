@@ -1,0 +1,17 @@
+ul {
+    list-style: none;
+}
+.brands-wrapper {
+    display: flex;
+    justify-content: space-between;
+    width: 300px;
+}
+
+.list_item--new{
+    opacity: 0;
+    transition: all 2s 1s;
+}
+
+.list__item--blure{
+    opacity: 1;
+}
