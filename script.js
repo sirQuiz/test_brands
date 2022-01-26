@@ -9,25 +9,40 @@
         listItems.forEach((item) => {
             brandsNames.push(item.textContent);
         });
-        // console.log(brandsNames);
-        console.log(typeof(brandsNames));
-    
 
         buttonOrderAtoZ.addEventListener("click", () => {
             listOfBrands.innerHTML = "";
             brandsNames.sort();
+
             for(let i = 0; i < brandsNames.length; i++) {
-                listOfBrands.innerHTML += `<li class="list__item list_item--new list__item--blure js-list__item">${brandsNames[i]}</li>`;
+                listOfBrands.innerHTML += `<li class="list__item list__item--new js-list__item">${brandsNames[i]}</li>`;
             }
+            let newList = document.querySelectorAll(".list__item--new");
+
+            newList.forEach((item, index) => {
+                item.style.animation = `fade 1s ease ${index}s`;
+                item.addEventListener("animationend", () => {
+                    item.classList.add('item--visible');
+                });
+            });
         });
 
         buttonOrderZtoA.addEventListener("click", () => {
             listOfBrands.innerHTML = "";
             brandsNames.sort();
             brandsNames.reverse();
+            
             for(let i = 0; i < brandsNames.length; i++) {
-                listOfBrands.innerHTML += `<li class="list__item js-list__item">${brandsNames[i]}</li>`;
+                listOfBrands.innerHTML += `<li class="list__item list__item--new js-list__item">${brandsNames[i]}</li>`;
             }
+            let newList = document.querySelectorAll(".list__item--new");
+
+            newList.forEach((item, index) => {
+                item.style.animation = `fade 1s ease ${index}s`;
+                item.addEventListener("animationend", () => {
+                    item.classList.add('item--visible');
+                });
+            });
         });
     };
 
